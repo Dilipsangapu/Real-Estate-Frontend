@@ -1,559 +1,1151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Real Estate Hub - Find Your Perfect Property</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luxe Estates — Find Your Perfect Property</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Header / Navigation -->
-    <header class="header">
-        <div class="container">
-            <nav class="navbar">
-                <div class="logo">
-                    <i class="fas fa-home"></i>
-                    <span>The Real Estate Hub</span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#properties">Properties</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="nav-buttons">
-                    <button class="btn-secondary">Login / Sign Up</button>
-                    <button class="btn-primary">Post Property</button>
-                </div>
-                <div class="mobile-menu-icon">
-                    <i class="fas fa-bars"></i>
-                </div>
-            </nav>
+
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-logo">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <path d="M24 4L44 18V44H30V30H18V44H4V18L24 4Z" stroke="#C9A96E" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M24 4L44 18V44H30V30H18V44H4V18L24 4Z" fill="none"/>
+        </svg>
+        <span>Luxe Estates</span>
+      </div>
+      <div class="preloader-bar"><div class="preloader-fill"></div></div>
+    </div>
+  </div>
+
+  <!-- Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="container">
+      <nav class="navbar">
+        <a class="logo" href="#">
+          <svg width="32" height="32" viewBox="0 0 48 48" fill="none">
+            <path d="M24 4L44 18V44H30V30H18V44H4V18L24 4Z" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          </svg>
+          <span>Luxe Estates</span>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#properties" class="nav-link">Properties</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <div class="nav-actions">
+          <button class="btn-ghost">Sign In</button>
+          <button class="btn-primary-nav">List Property <i class="fa-solid fa-plus"></i></button>
         </div>
-    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="container">
-            <div class="hero-content">
-                <h1>Find Your Dream Home Today</h1>
-                <p>Discover the perfect property that matches your lifestyle and budget</p>
-                
-                <!-- Search Bar -->
-                <div class="search-bar">
-                    <div class="search-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" placeholder="Location">
-                    </div>
-                    <div class="search-item">
-                        <i class="fas fa-building"></i>
-                        <select>
-                            <option>Property Type</option>
-                            <option>Apartment</option>
-                            <option>Villa</option>
-                            <option>Commercial</option>
-                            <option>Plot</option>
-                        </select>
-                    </div>
-                    <div class="search-item">
-                        <i class="fas fa-dollar-sign"></i>
-                        <select>
-                            <option>Budget</option>
-                            <option>$0 - $100k</option>
-                            <option>$100k - $300k</option>
-                            <option>$300k - $500k</option>
-                            <option>$500k+</option>
-                        </select>
-                    </div>
-                    <button class="btn-search">
-                        <i class="fas fa-search"></i> Search
-                    </button>
-                </div>
-                
-                <button class="btn-explore">Explore Listings</button>
-            </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="nav-drawer" id="navDrawer">
+    <button class="drawer-close" id="drawerClose"><i class="fa-solid fa-xmark"></i></button>
+    <div class="drawer-logo">
+      <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+        <path d="M24 4L44 18V44H30V30H18V44H4V18L24 4Z" stroke="#C9A96E" stroke-width="2.5" stroke-linejoin="round"/>
+      </svg>
+      <span>Luxe Estates</span>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#properties">Properties</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="drawer-actions">
+      <button class="btn-ghost w-full">Sign In</button>
+      <button class="btn-primary-nav w-full">List Property</button>
+    </div>
+  </div>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ──────────────────── HERO ──────────────────── -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1800&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1800&q=80')"></div>
+      <div class="hero-slide" style="background-image:url('https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=1800&q=80')"></div>
+    </div>
+    <div class="hero-overlay"></div>
+
+    <!-- Slide indicators -->
+    <div class="hero-indicators">
+      <button class="indicator active" data-slide="0"></button>
+      <button class="indicator" data-slide="1"></button>
+      <button class="indicator" data-slide="2"></button>
+    </div>
+
+    <!-- Vertical scroll hint -->
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="dot"></span> Curated Luxury Real Estate
         </div>
-    </section>
+        <h1 class="hero-heading">
+          Where <em>Extraordinary</em><br>Homes Meet<br>Discerning Buyers
+        </h1>
+        <p class="hero-sub">Discover handpicked residences that redefine luxury living — from beachfront paradises to city penthouses.</p>
 
-    <!-- Featured Properties -->
-    <section id="properties" class="featured-properties">
-        <div class="container">
-            <div class="section-header">
-                <h2>Featured Properties</h2>
-                <p>Handpicked properties just for you</p>
-            </div>
-            
-            <div class="properties-grid">
-                <!-- Property Card 1 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500" alt="Modern Villa">
-                        <span class="property-badge">Featured</span>
-                    </div>
-                    <div class="property-info">
-                        <h3>$450,000</h3>
-                        <h4>Modern Luxury Villa</h4>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Beverly Hills, CA</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 4 Beds</span>
-                            <span><i class="fas fa-bath"></i> 3 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 3,200 sqft</span>
-                        </div>
-                        <p class="property-desc">Beautiful modern villa with stunning views and premium amenities.</p>
-                        <button class="btn-view">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Property Card 2 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500" alt="Downtown Apartment">
-                        <span class="property-badge">New</span>
-                    </div>
-                    <div class="property-info">
-                        <h3>$285,000</h3>
-                        <h4>Downtown Apartment</h4>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Manhattan, NY</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 2 Beds</span>
-                            <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 1,500 sqft</span>
-                        </div>
-                        <p class="property-desc">Contemporary apartment in the heart of the city with modern finishes.</p>
-                        <button class="btn-view">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Property Card 3 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=500" alt="Suburban Home">
-                    </div>
-                    <div class="property-info">
-                        <h3>$320,000</h3>
-                        <h4>Cozy Suburban Home</h4>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Austin, TX</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 3 Beds</span>
-                            <span><i class="fas fa-bath"></i> 2 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 2,100 sqft</span>
-                        </div>
-                        <p class="property-desc">Perfect family home with spacious backyard and excellent schools nearby.</p>
-                        <button class="btn-view">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Property Card 4 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=500" alt="Beach House">
-                        <span class="property-badge">Hot</span>
-                    </div>
-                    <div class="property-info">
-                        <h3>$680,000</h3>
-                        <h4>Beachfront Paradise</h4>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Miami, FL</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 5 Beds</span>
-                            <span><i class="fas fa-bath"></i> 4 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 4,000 sqft</span>
-                        </div>
-                        <p class="property-desc">Stunning beachfront property with private access and ocean views.</p>
-                        <button class="btn-view">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Property Card 5 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1599427303058-f04cbcf4756f?w=500" alt="Commercial Space">
-                    </div>
-                    <div class="property-info">
-                        <h3>$550,000</h3>
-                        <h4>Prime Commercial Space</h4>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Chicago, IL</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-building"></i> Office</span>
-                            <span><i class="fas fa-car"></i> 10 Parking</span>
-                            <span><i class="fas fa-ruler-combined"></i> 5,500 sqft</span>
-                        </div>
-                        <p class="property-desc">High-traffic commercial property ideal for retail or office space.</p>
-                        <button class="btn-view">View Details</button>
-                    </div>
-                </div>
-
-                <!-- Property Card 6 -->
-                <div class="property-card">
-                    <div class="property-image">
-                        <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=500" alt="Country Estate">
-                    </div>
-                    <div class="property-info">
-                        <h3>$890,000</h3>
-                        <h4>Luxury Country Estate</h4>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> Nashville, TN</p>
-                        <div class="property-features">
-                            <span><i class="fas fa-bed"></i> 6 Beds</span>
-                            <span><i class="fas fa-bath"></i> 5 Baths</span>
-                            <span><i class="fas fa-ruler-combined"></i> 6,800 sqft</span>
-                        </div>
-                        <p class="property-desc">Expansive estate on 5 acres with pool, stables, and guest house.</p>
-                        <button class="btn-view">View Details</button>
-                    </div>
-                </div>
-            </div>
+        <!-- Stats row -->
+        <div class="hero-stats">
+          <div class="hstat"><strong>8,400+</strong><span>Properties</span></div>
+          <div class="hstat-divider"></div>
+          <div class="hstat"><strong>5,200+</strong><span>Happy Clients</span></div>
+          <div class="hstat-divider"></div>
+          <div class="hstat"><strong>15+</strong><span>Years Trust</span></div>
         </div>
-    </section>
 
-    <!-- Why Choose Us -->
-    <section id="services" class="why-choose-us">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Us</h2>
-                <p>We make your property search effortless</p>
-            </div>
-            
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-check-circle"></i>
-                    </div>
-                    <h3>Verified Listings</h3>
-                    <p>All properties are thoroughly verified and authenticated to ensure quality and legitimacy.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-tag"></i>
-                    </div>
-                    <h3>Best Prices</h3>
-                    <p>Competitive pricing and transparent deals with no hidden costs or surprises.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3>Trusted Agents</h3>
-                    <p>Work with certified and experienced real estate professionals you can trust.</p>
-                </div>
-
-                <div class="benefit-card">
-                    <div class="benefit-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>24/7 Support</h3>
-                    <p>Round-the-clock customer service to assist you at every step of your journey.</p>
-                </div>
-            </div>
+        <div class="hero-actions">
+          <button class="btn-hero-primary" onclick="document.querySelector('#properties').scrollIntoView({behavior:'smooth'})">
+            Explore Properties <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <button class="btn-hero-ghost">
+            <span class="play-icon"><i class="fa-solid fa-play"></i></span> Watch Tour
+          </button>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Property Categories -->
-    <section class="property-categories">
-        <div class="container">
-            <div class="section-header">
-                <h2>Browse by Category</h2>
-                <p>Find properties that match your needs</p>
+    <!-- Floating search card -->
+    <div class="search-float">
+      <div class="container">
+        <div class="search-card">
+          <div class="search-tabs">
+            <button class="stab active" data-type="buy">Buy</button>
+            <button class="stab" data-type="rent">Rent</button>
+            <button class="stab" data-type="invest">Invest</button>
+          </div>
+          <div class="search-fields">
+            <div class="sfield">
+              <label><i class="fa-solid fa-location-dot"></i> Location</label>
+              <input type="text" placeholder="City, neighborhood, ZIP…" />
             </div>
-            
-            <div class="categories-grid">
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3>Apartments</h3>
-                    <p>Modern living spaces</p>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <h3>Villas</h3>
-                    <p>Luxury residences</p>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h3>Commercial</h3>
-                    <p>Business properties</p>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-map"></i>
-                    </div>
-                    <h3>Plots / Lands</h3>
-                    <p>Investment opportunities</p>
-                </div>
-
-                <div class="category-card">
-                    <div class="category-icon">
-                        <i class="fas fa-key"></i>
-                    </div>
-                    <h3>Rentals</h3>
-                    <p>Short & long term</p>
-                </div>
+            <div class="sfield-divider"></div>
+            <div class="sfield">
+              <label><i class="fa-solid fa-building"></i> Property Type</label>
+              <select>
+                <option>All Types</option>
+                <option>Apartment</option>
+                <option>Villa</option>
+                <option>Penthouse</option>
+                <option>Commercial</option>
+                <option>Plot</option>
+              </select>
             </div>
+            <div class="sfield-divider"></div>
+            <div class="sfield">
+              <label><i class="fa-solid fa-coins"></i> Budget</label>
+              <select>
+                <option>Any Budget</option>
+                <option>Under $200k</option>
+                <option>$200k – $500k</option>
+                <option>$500k – $1M</option>
+                <option>$1M+</option>
+              </select>
+            </div>
+            <div class="sfield-divider"></div>
+            <div class="sfield">
+              <label><i class="fa-solid fa-bed"></i> Bedrooms</label>
+              <select>
+                <option>Any</option>
+                <option>Studio</option>
+                <option>1+ Bed</option>
+                <option>2+ Beds</option>
+                <option>3+ Beds</option>
+                <option>4+ Beds</option>
+              </select>
+            </div>
+            <button class="btn-search-card">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>Search</span>
+            </button>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- About Us -->
-    <section id="about" class="about-us">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About DreamHome</h2>
-                    <p class="lead">Your trusted partner in finding the perfect property since 2010.</p>
-                    <p>At DreamHome, we're passionate about helping people find their ideal homes and investment properties. With over 15 years of experience in the real estate industry, we've successfully helped thousands of clients achieve their property dreams.</p>
-                    <p>Our team of dedicated professionals works tirelessly to ensure that every transaction is smooth, transparent, and beneficial for our clients. We believe in building long-term relationships based on trust and exceptional service.</p>
-                    
-                    <div class="about-stats">
-                        <div class="stat">
-                            <h3>15+</h3>
-                            <p>Years Experience</p>
-                        </div>
-                        <div class="stat">
-                            <h3>5,000+</h3>
-                            <p>Happy Clients</p>
-                        </div>
-                        <div class="stat">
-                            <h3>8,000+</h3>
-                            <p>Properties Sold</p>
-                        </div>
-                        <div class="stat">
-                            <h3>50+</h3>
-                            <p>Expert Agents</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" alt="Real Estate Team">
-                </div>
-            </div>
+  <!-- ──────────────────── MARQUEE ──────────────────── -->
+  <div class="marquee-strip">
+    <div class="marquee-track">
+      <span>Beverly Hills</span><span class="sep">✦</span>
+      <span>Manhattan</span><span class="sep">✦</span>
+      <span>Miami Beach</span><span class="sep">✦</span>
+      <span>The Hamptons</span><span class="sep">✦</span>
+      <span>Malibu</span><span class="sep">✦</span>
+      <span>Palm Springs</span><span class="sep">✦</span>
+      <span>Aspen</span><span class="sep">✦</span>
+      <span>Nashville</span><span class="sep">✦</span>
+      <span>Chicago</span><span class="sep">✦</span>
+      <span>Austin</span><span class="sep">✦</span>
+      <!-- Duplicate for seamless loop -->
+      <span>Beverly Hills</span><span class="sep">✦</span>
+      <span>Manhattan</span><span class="sep">✦</span>
+      <span>Miami Beach</span><span class="sep">✦</span>
+      <span>The Hamptons</span><span class="sep">✦</span>
+      <span>Malibu</span><span class="sep">✦</span>
+      <span>Palm Springs</span><span class="sep">✦</span>
+      <span>Aspen</span><span class="sep">✦</span>
+      <span>Nashville</span><span class="sep">✦</span>
+      <span>Chicago</span><span class="sep">✦</span>
+      <span>Austin</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- ──────────────────── FEATURED PROPERTIES ──────────────────── -->
+  <section id="properties" class="properties-section">
+    <div class="container">
+      <div class="section-intro">
+        <div class="section-label">Featured Listings</div>
+        <h2 class="section-title">Handpicked <em>Exceptional</em> Properties</h2>
+        <p class="section-sub">Each property in our portfolio has been personally vetted by our luxury specialists.</p>
+        <div class="filter-pills">
+          <button class="pill active" data-filter="all">All</button>
+          <button class="pill" data-filter="villa">Villa</button>
+          <button class="pill" data-filter="apartment">Apartment</button>
+          <button class="pill" data-filter="commercial">Commercial</button>
+          <button class="pill" data-filter="estate">Estate</button>
         </div>
-    </section>
+      </div>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Our Clients Say</h2>
-                <p>Real stories from real customers</p>
+      <div class="prop-grid" id="propGrid">
+
+        <!-- Card 1 -->
+        <article class="prop-card" data-category="villa"
+          data-name="Modern Luxury Villa" data-price="$450,000" data-pricesub="For Sale"
+          data-location="Beverly Hills, CA" data-beds="4" data-baths="3" data-sqft="3,200"
+          data-garage="2-Car Garage" data-type="Villa" data-year="2019" data-lot="0.45 acres"
+          data-status="Available" data-floor="2 Floors" data-hoa="$350/mo"
+          data-desc="A masterpiece of contemporary architecture nestled in the prestigious hills of Beverly Hills. This stunning villa seamlessly blends indoor and outdoor living with floor-to-ceiling glass walls, a chef's kitchen with Miele appliances, and a resort-style infinity pool overlooking the city. The primary suite features a private terrace, spa bathroom with heated floors, and a custom walk-in closet. Smart home automation controls lighting, climate, and security throughout."
+          data-badge="Featured" data-badgeclass="badge-gold"
+          data-agent-name="Sarah Morgan" data-agent-role="Beverly Hills Specialist"
+          data-agent-img="https://i.pravatar.cc/300?img=11" data-agent-rating="⭐ 4.9 · 68 reviews"
+          data-agent-phone="+1 (555) 201-4400"
+          data-imgs='["https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1200&q=85","https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85","https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=85","https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=85","https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=85","https://images.unsplash.com/photo-1613977257363-707ba9348227?w=1200&q=85"]'>
+          <div class="prop-media">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80" alt="Modern Luxury Villa" loading="lazy" />
+            <div class="prop-media-overlay"></div>
+            <div class="prop-badges"><span class="badge badge-gold">Featured</span></div>
+            <button class="prop-save" aria-label="Save"><i class="fa-regular fa-heart"></i></button>
+            <div class="prop-hover-actions">
+              <button class="pha-btn"><i class="fa-solid fa-images"></i> 6 Photos</button>
+              <button class="pha-btn"><i class="fa-solid fa-vr-cardboard"></i> 3D Tour</button>
             </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"DreamHome made buying our first home so easy! The team was professional, patient, and helped us find exactly what we were looking for. Highly recommend!"</p>
-                    <div class="client-info">
-                        <img src="https://i.pravatar.cc/100?img=1" alt="Sarah Johnson">
-                        <div>
-                            <h4>Sarah Johnson</h4>
-                            <p>Homeowner</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"I've worked with many real estate agencies, but DreamHome stands out. Their market knowledge and negotiation skills saved me thousands on my investment property."</p>
-                    <div class="client-info">
-                        <img src="https://i.pravatar.cc/100?img=12" alt="Michael Chen">
-                        <div>
-                            <h4>Michael Chen</h4>
-                            <p>Property Investor</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p class="testimonial-text">"Exceptional service from start to finish! The agents were responsive, knowledgeable, and genuinely cared about finding us the perfect home. Thank you DreamHome!"</p>
-                    <div class="client-info">
-                        <img src="https://i.pravatar.cc/100?img=5" alt="Emily Rodriguez">
-                        <div>
-                            <h4>Emily Rodriguez</h4>
-                            <p>First-time Buyer</p>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price-row"><h3 class="prop-price">$450,000</h3><span class="prop-tag">For Sale</span></div>
+            <h4 class="prop-name">Modern Luxury Villa</h4>
+            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Beverly Hills, CA</p>
+            <div class="prop-specs">
+              <span><i class="fa-solid fa-bed"></i> 4 Beds</span>
+              <span><i class="fa-solid fa-bath"></i> 3 Baths</span>
+              <span><i class="fa-solid fa-expand"></i> 3,200 sqft</span>
             </div>
+            <div class="prop-footer">
+              <div class="agent-mini"><img src="https://i.pravatar.cc/100?img=11" alt="Agent" /><span>By Sarah M.</span></div>
+              <button class="btn-view-prop">View Details <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="prop-card" data-category="apartment"
+          data-name="Downtown Apartment" data-price="$285,000" data-pricesub="For Sale"
+          data-location="Manhattan, NY" data-beds="2" data-baths="2" data-sqft="1,500"
+          data-garage="1-Car Parking" data-type="Apartment" data-year="2021" data-lot="N/A"
+          data-status="Available" data-floor="18th Floor" data-hoa="$520/mo"
+          data-desc="Contemporary apartment in the heart of Manhattan offering spectacular skyline views. This thoughtfully designed home features an open-plan living and dining area, gourmet kitchen with quartz countertops, spa-inspired bathrooms, and private balcony. Located in a full-service building with 24-hour doorman, concierge, rooftop terrace, gym, and resident lounge — everything the city lifestyle demands."
+          data-badge="New" data-badgeclass="badge-green"
+          data-agent-name="James Kim" data-agent-role="Manhattan Luxury Expert"
+          data-agent-img="https://i.pravatar.cc/300?img=12" data-agent-rating="⭐ 5.0 · 94 reviews"
+          data-agent-phone="+1 (555) 302-7711"
+          data-imgs='["https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1200&q=85","https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1200&q=85","https://images.unsplash.com/photo-1484154218962-a197022b5858?w=1200&q=85","https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=85","https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1200&q=85"]'>
+          <div class="prop-media">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80" alt="Downtown Apartment" loading="lazy" />
+            <div class="prop-media-overlay"></div>
+            <div class="prop-badges"><span class="badge badge-green">New</span></div>
+            <button class="prop-save" aria-label="Save"><i class="fa-regular fa-heart"></i></button>
+            <div class="prop-hover-actions">
+              <button class="pha-btn"><i class="fa-solid fa-images"></i> 5 Photos</button>
+              <button class="pha-btn"><i class="fa-solid fa-vr-cardboard"></i> 3D Tour</button>
+            </div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price-row"><h3 class="prop-price">$285,000</h3><span class="prop-tag">For Sale</span></div>
+            <h4 class="prop-name">Downtown Apartment</h4>
+            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Manhattan, NY</p>
+            <div class="prop-specs">
+              <span><i class="fa-solid fa-bed"></i> 2 Beds</span>
+              <span><i class="fa-solid fa-bath"></i> 2 Baths</span>
+              <span><i class="fa-solid fa-expand"></i> 1,500 sqft</span>
+            </div>
+            <div class="prop-footer">
+              <div class="agent-mini"><img src="https://i.pravatar.cc/100?img=3" alt="Agent" /><span>By James K.</span></div>
+              <button class="btn-view-prop">View Details <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="prop-card" data-category="villa"
+          data-name="Cozy Suburban Home" data-price="$320,000" data-pricesub="For Sale"
+          data-location="Austin, TX" data-beds="3" data-baths="2" data-sqft="2,100"
+          data-garage="2-Car Garage" data-type="Single Family" data-year="2016" data-lot="0.28 acres"
+          data-status="Available" data-floor="1 Floor" data-hoa="None"
+          data-desc="Perfect for families, this charming suburban home sits on a generous lot with a large, fully fenced backyard and mature trees. Enjoy an open kitchen with island seating, vaulted ceilings in the living room, a dedicated home office, and a covered back patio ideal for entertaining. Zoned for top-rated Round Rock schools. Minutes from the Domain shopping center and major tech campuses."
+          data-badge="" data-badgeclass=""
+          data-agent-name="Nina Patel" data-agent-role="Austin Area Specialist"
+          data-agent-img="https://i.pravatar.cc/300?img=47" data-agent-rating="⭐ 4.8 · 52 reviews"
+          data-agent-phone="+1 (555) 411-9933"
+          data-imgs='["https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=1200&q=85","https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=1200&q=85","https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=1200&q=85","https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85","https://images.unsplash.com/photo-1592595896616-c37162298647?w=1200&q=85"]'>
+          <div class="prop-media">
+            <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=700&q=80" alt="Suburban Home" loading="lazy" />
+            <div class="prop-media-overlay"></div>
+            <div class="prop-badges"></div>
+            <button class="prop-save" aria-label="Save"><i class="fa-regular fa-heart"></i></button>
+            <div class="prop-hover-actions">
+              <button class="pha-btn"><i class="fa-solid fa-images"></i> 5 Photos</button>
+              <button class="pha-btn"><i class="fa-solid fa-vr-cardboard"></i> 3D Tour</button>
+            </div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price-row"><h3 class="prop-price">$320,000</h3><span class="prop-tag">For Sale</span></div>
+            <h4 class="prop-name">Cozy Suburban Home</h4>
+            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Austin, TX</p>
+            <div class="prop-specs">
+              <span><i class="fa-solid fa-bed"></i> 3 Beds</span>
+              <span><i class="fa-solid fa-bath"></i> 2 Baths</span>
+              <span><i class="fa-solid fa-expand"></i> 2,100 sqft</span>
+            </div>
+            <div class="prop-footer">
+              <div class="agent-mini"><img src="https://i.pravatar.cc/100?img=7" alt="Agent" /><span>By Nina P.</span></div>
+              <button class="btn-view-prop">View Details <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 4 — Wide Featured -->
+        <article class="prop-card prop-card-wide" data-category="villa"
+          data-name="Beachfront Paradise" data-price="$680,000" data-pricesub="For Rent"
+          data-location="Miami Beach, FL" data-beds="5" data-baths="4" data-sqft="4,000"
+          data-garage="3-Car Garage" data-type="Beachfront Villa" data-year="2018" data-lot="0.6 acres"
+          data-status="Available" data-floor="2 Floors" data-hoa="$800/mo"
+          data-desc="Breathtaking oceanfront estate on exclusive Miami Beach waterfront. Wake up to panoramic Atlantic Ocean views from every principal room. This architectural gem features a dramatic double-height great room, gourmet kitchen with Sub-Zero appliances, private beach access, heated infinity pool, summer kitchen, and a rooftop sun terrace. The primary suite is a sanctuary with floor-to-ceiling ocean views, a spa bath with soaking tub, and his-and-hers closets."
+          data-badge="🔥 Hot" data-badgeclass="badge-red"
+          data-agent-name="Robert Adams" data-agent-role="Waterfront Properties Expert"
+          data-agent-img="https://i.pravatar.cc/300?img=33" data-agent-rating="⭐ 4.9 · 77 reviews"
+          data-agent-phone="+1 (555) 500-8822"
+          data-imgs='["https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1200&q=85","https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?w=1200&q=85","https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1200&q=85","https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1200&q=85","https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=85","https://images.unsplash.com/photo-1540541338287-41700207dee6?w=1200&q=85"]'>
+          <div class="prop-media">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1000&q=80" alt="Beachfront Paradise" loading="lazy" />
+            <div class="prop-media-overlay"></div>
+            <div class="prop-badges">
+              <span class="badge badge-red">🔥 Hot</span>
+              <span class="badge badge-gold">Featured</span>
+            </div>
+            <button class="prop-save" aria-label="Save"><i class="fa-regular fa-heart"></i></button>
+            <div class="prop-hover-actions">
+              <button class="pha-btn"><i class="fa-solid fa-images"></i> 6 Photos</button>
+              <button class="pha-btn"><i class="fa-solid fa-vr-cardboard"></i> 3D Tour</button>
+            </div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price-row"><h3 class="prop-price">$680,000</h3><span class="prop-tag prop-tag-rent">For Rent</span></div>
+            <h4 class="prop-name">Beachfront Paradise</h4>
+            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Miami Beach, FL</p>
+            <div class="prop-specs">
+              <span><i class="fa-solid fa-bed"></i> 5 Beds</span>
+              <span><i class="fa-solid fa-bath"></i> 4 Baths</span>
+              <span><i class="fa-solid fa-expand"></i> 4,000 sqft</span>
+              <span><i class="fa-solid fa-water"></i> Oceanfront</span>
+            </div>
+            <div class="prop-footer">
+              <div class="agent-mini"><img src="https://i.pravatar.cc/100?img=9" alt="Agent" /><span>By Robert A.</span></div>
+              <button class="btn-view-prop">View Details <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 5 -->
+        <article class="prop-card" data-category="commercial"
+          data-name="Prime Commercial Space" data-price="$550,000" data-pricesub="For Sale"
+          data-location="Chicago, IL" data-beds="N/A" data-baths="4 Restrooms" data-sqft="5,500"
+          data-garage="10 Parking Spaces" data-type="Commercial Office" data-year="2014" data-lot="0.18 acres"
+          data-status="Available" data-floor="3 Floors" data-hoa="N/A"
+          data-desc="Exceptional high-traffic commercial property ideally positioned in Chicago's thriving business district. This modern office building features open-plan floorplates, boardroom facilities, a client reception lobby, server room, and a rooftop terrace. Ground floor is retail-ready with large display windows. 10-space secure underground parking. Walking distance to CTA Blue Line and the city's financial corridor."
+          data-badge="" data-badgeclass=""
+          data-agent-name="David Lawson" data-agent-role="Commercial Properties"
+          data-agent-img="https://i.pravatar.cc/300?img=14" data-agent-rating="⭐ 4.7 · 41 reviews"
+          data-agent-phone="+1 (555) 677-3344"
+          data-imgs='["https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&q=85","https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200&q=85","https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=85","https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=1200&q=85","https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=1200&q=85"]'>
+          <div class="prop-media">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80" alt="Commercial Space" loading="lazy" />
+            <div class="prop-media-overlay"></div>
+            <div class="prop-badges"></div>
+            <button class="prop-save" aria-label="Save"><i class="fa-regular fa-heart"></i></button>
+            <div class="prop-hover-actions">
+              <button class="pha-btn"><i class="fa-solid fa-images"></i> 5 Photos</button>
+            </div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price-row"><h3 class="prop-price">$550,000</h3><span class="prop-tag">For Sale</span></div>
+            <h4 class="prop-name">Prime Commercial Space</h4>
+            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Chicago, IL</p>
+            <div class="prop-specs">
+              <span><i class="fa-solid fa-building"></i> Office</span>
+              <span><i class="fa-solid fa-car"></i> 10 Parking</span>
+              <span><i class="fa-solid fa-expand"></i> 5,500 sqft</span>
+            </div>
+            <div class="prop-footer">
+              <div class="agent-mini"><img src="https://i.pravatar.cc/100?img=14" alt="Agent" /><span>By David L.</span></div>
+              <button class="btn-view-prop">View Details <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 6 -->
+        <article class="prop-card" data-category="estate"
+          data-name="Luxury Country Estate" data-price="$890,000" data-pricesub="For Sale"
+          data-location="Nashville, TN" data-beds="6" data-baths="5" data-sqft="6,800"
+          data-garage="4-Car Garage" data-type="Country Estate" data-year="2012" data-lot="5 acres"
+          data-status="Available" data-floor="3 Floors" data-hoa="$450/mo"
+          data-desc="An unrivaled estate set on 5 lush acres in the rolling hills outside Nashville. This extraordinary property includes the main residence with 6 bedrooms, a guest house, a 4-stall horse stable, championship-sized tennis court, heated pool and spa, and a spring-fed pond. The grand entrance hall features a sweeping staircase, 12-foot ceilings, and wide-plank white oak floors. A true once-in-a-generation property."
+          data-badge="Exclusive" data-badgeclass="badge-gold"
+          data-agent-name="Emily Rodriguez" data-agent-role="Estates & Luxury Homes"
+          data-agent-img="https://i.pravatar.cc/300?img=5" data-agent-rating="⭐ 4.9 · 89 reviews"
+          data-agent-phone="+1 (555) 788-2200"
+          data-imgs='["https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=1200&q=85","https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=1200&q=85","https://images.unsplash.com/photo-1600210491369-e753d80a41f3?w=1200&q=85","https://images.unsplash.com/photo-1615873968403-89e068629265?w=1200&q=85","https://images.unsplash.com/photo-1618220179428-22790b461013?w=1200&q=85","https://images.unsplash.com/photo-1590650046871-92c887180603?w=1200&q=85"]'>
+          <div class="prop-media">
+            <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?w=700&q=80" alt="Country Estate" loading="lazy" />
+            <div class="prop-media-overlay"></div>
+            <div class="prop-badges"><span class="badge badge-gold">Exclusive</span></div>
+            <button class="prop-save" aria-label="Save"><i class="fa-regular fa-heart"></i></button>
+            <div class="prop-hover-actions">
+              <button class="pha-btn"><i class="fa-solid fa-images"></i> 6 Photos</button>
+              <button class="pha-btn"><i class="fa-solid fa-vr-cardboard"></i> 3D Tour</button>
+            </div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-price-row"><h3 class="prop-price">$890,000</h3><span class="prop-tag">For Sale</span></div>
+            <h4 class="prop-name">Luxury Country Estate</h4>
+            <p class="prop-loc"><i class="fa-solid fa-location-dot"></i> Nashville, TN</p>
+            <div class="prop-specs">
+              <span><i class="fa-solid fa-bed"></i> 6 Beds</span>
+              <span><i class="fa-solid fa-bath"></i> 5 Baths</span>
+              <span><i class="fa-solid fa-expand"></i> 6,800 sqft</span>
+            </div>
+            <div class="prop-footer">
+              <div class="agent-mini"><img src="https://i.pravatar.cc/100?img=5" alt="Agent" /><span>By Emily R.</span></div>
+              <button class="btn-view-prop">View Details <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="view-all-row">
+        <button class="btn-view-all">View All 400+ Properties <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────── CATEGORIES ──────────────────── -->
+  <section class="categories-section">
+    <div class="container">
+      <div class="section-intro centered">
+        <div class="section-label">Browse by Type</div>
+        <h2 class="section-title">Find What Fits <em>Your Vision</em></h2>
+      </div>
+      <div class="cat-grid">
+        <div class="cat-card" style="--bg:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=80')">
+          <div class="cat-overlay"></div>
+          <div class="cat-body">
+            <div class="cat-icon"><i class="fa-solid fa-building"></i></div>
+            <h3>Apartments</h3>
+            <p>148 listings</p>
+          </div>
         </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Find Your Dream Property?</h2>
-                <p>Schedule a free consultation with our expert agents today</p>
-                <div class="cta-buttons">
-                    <button class="btn-cta-primary">Schedule a Free Consultation</button>
-                    <button class="btn-cta-secondary">List Your Property With Us</button>
-                </div>
-            </div>
+        <div class="cat-card" style="--bg:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80')">
+          <div class="cat-overlay"></div>
+          <div class="cat-body">
+            <div class="cat-icon"><i class="fa-solid fa-house"></i></div>
+            <h3>Villas</h3>
+            <p>92 listings</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Contact Form -->
-    <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>We'd love to hear from you</p>
-            </div>
-            
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Address</h4>
-                            <p>123 Real Estate Blvd, Suite 100<br>Los Angeles, CA 90001</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>info@dreamhome.com</p>
-                        </div>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div>
-                            <h4>WhatsApp</h4>
-                            <p>+1 (555) 987-6543</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-
-                    <div class="form-group full-width">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Send Message</button>
-                </form>
-            </div>
+        <div class="cat-card" style="--bg:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80')">
+          <div class="cat-overlay"></div>
+          <div class="cat-body">
+            <div class="cat-icon"><i class="fa-solid fa-store"></i></div>
+            <h3>Commercial</h3>
+            <p>64 listings</p>
+          </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <div class="footer-logo">
-                        <i class="fas fa-home"></i>
-                        <span>DreamHome</span>
-                    </div>
-                    <p>Your trusted partner in finding the perfect property. Making dreams come true since 2010.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#properties">Properties</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Property Types</h3>
-                    <ul>
-                        <li><a href="#">Apartments</a></li>
-                        <li><a href="#">Villas</a></li>
-                        <li><a href="#">Commercial</a></li>
-                        <li><a href="#">Plots & Lands</a></li>
-                        <li><a href="#">Rentals</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <ul class="contact-list">
-                        <li><i class="fas fa-map-marker-alt"></i> Los Angeles, CA 90001</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-envelope"></i> info@dreamhome.com</li>
-                        <li><i class="fas fa-clock"></i> Mon - Sat: 9AM - 6PM</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 DreamHome. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                </div>
-            </div>
+        <div class="cat-card" style="--bg:url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=600&q=80')">
+          <div class="cat-overlay"></div>
+          <div class="cat-body">
+            <div class="cat-icon"><i class="fa-solid fa-map"></i></div>
+            <h3>Plots & Land</h3>
+            <p>37 listings</p>
+          </div>
         </div>
-    </footer>
+        <div class="cat-card" style="--bg:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80')">
+          <div class="cat-overlay"></div>
+          <div class="cat-body">
+            <div class="cat-icon"><i class="fa-solid fa-key"></i></div>
+            <h3>Rentals</h3>
+            <p>210 listings</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- ──────────────────── WHY US ──────────────────── -->
+  <section id="services" class="whyus-section">
+    <div class="container">
+      <div class="whyus-inner">
+        <div class="whyus-left reveal">
+          <div class="section-label light">Why Luxe Estates</div>
+          <h2 class="section-title light">The Gold Standard<br><em>in Real Estate</em></h2>
+          <p class="section-sub light">We combine deep market expertise with a relentless client-first philosophy to deliver outcomes that exceed expectations.</p>
+          <div class="whyus-features">
+            <div class="wf-item reveal">
+              <div class="wf-icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <div>
+                <h4>100% Verified Listings</h4>
+                <p>Every property is rigorously authenticated and legally vetted before it appears on our platform.</p>
+              </div>
+            </div>
+            <div class="wf-item reveal">
+              <div class="wf-icon"><i class="fa-solid fa-handshake"></i></div>
+              <div>
+                <h4>No Hidden Fees</h4>
+                <p>Fully transparent pricing. The price you see is the price you pay — always.</p>
+              </div>
+            </div>
+            <div class="wf-item reveal">
+              <div class="wf-icon"><i class="fa-solid fa-headset"></i></div>
+              <div>
+                <h4>Dedicated Concierge</h4>
+                <p>A personal real estate concierge is available around the clock to assist your journey.</p>
+              </div>
+            </div>
+            <div class="wf-item reveal">
+              <div class="wf-icon"><i class="fa-solid fa-chart-line"></i></div>
+              <div>
+                <h4>Market Intelligence</h4>
+                <p>Real-time data, comparable analysis, and expert forecasts to inform every decision.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="whyus-right reveal">
+          <div class="whyus-image-stack">
+            <img class="ws-img ws-back" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80" alt="Real Estate" />
+            <img class="ws-img ws-front" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500&q=80" alt="Interior" />
+            <div class="ws-badge">
+              <strong>15+</strong>
+              <span>Years of Excellence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="stats-strip">
+      <div class="container">
+        <div class="stats-row">
+          <div class="stat-block reveal">
+            <div class="stat-number" data-target="8400">0</div>
+            <p>Properties Listed</p>
+          </div>
+          <div class="stat-block reveal">
+            <div class="stat-number" data-target="5200">0</div>
+            <p>Happy Clients</p>
+          </div>
+          <div class="stat-block reveal">
+            <div class="stat-number" data-target="98">0</div>
+            <p>Satisfaction Rate %</p>
+          </div>
+          <div class="stat-block reveal">
+            <div class="stat-number" data-target="50">0</div>
+            <p>Expert Agents</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────── ABOUT ──────────────────── -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-media reveal">
+          <img class="ab-main" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80" alt="Our Team" />
+          <img class="ab-accent" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&q=80" alt="Property" />
+          <div class="ab-chip">
+            <i class="fa-solid fa-trophy"></i>
+            <div><strong>#1 Ranked</strong><span>Luxury Agency 2024</span></div>
+          </div>
+        </div>
+        <div class="about-text reveal">
+          <div class="section-label">Our Story</div>
+          <h2 class="section-title">Built on Trust,<br><em>Driven by Excellence</em></h2>
+          <p>Founded in 2010, Luxe Estates has grown from a boutique agency to one of the most trusted names in luxury real estate. We believe every home has a story — and every buyer deserves to find theirs.</p>
+          <p>Our team of 50+ certified specialists operates across all major U.S. markets, combining hyper-local expertise with a global network of buyers and sellers.</p>
+          <div class="about-points">
+            <div class="apoint"><i class="fa-solid fa-check"></i> Certified Luxury Home Marketing Specialists</div>
+            <div class="apoint"><i class="fa-solid fa-check"></i> Exclusive off-market pocket listings</div>
+            <div class="apoint"><i class="fa-solid fa-check"></i> AI-powered property matching technology</div>
+            <div class="apoint"><i class="fa-solid fa-check"></i> End-to-end transaction management</div>
+          </div>
+          <button class="btn-outline-dark">Meet Our Team <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────── AGENTS ──────────────────── -->
+  <section class="agents-section">
+    <div class="container">
+      <div class="section-intro centered reveal">
+        <div class="section-label">The Experts</div>
+        <h2 class="section-title">Meet Our <em>Top Agents</em></h2>
+      </div>
+      <div class="agents-grid">
+        <div class="agent-card reveal">
+          <div class="agent-img">
+            <img src="https://i.pravatar.cc/300?img=11" alt="Sarah Morgan" />
+            <div class="agent-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <h4>Sarah Morgan</h4>
+          <p>Beverly Hills Specialist</p>
+          <div class="agent-stats"><span>68 Sales</span><span>⭐ 4.9</span></div>
+        </div>
+        <div class="agent-card reveal">
+          <div class="agent-img">
+            <img src="https://i.pravatar.cc/300?img=12" alt="James Kim" />
+            <div class="agent-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <h4>James Kim</h4>
+          <p>Manhattan Luxury Expert</p>
+          <div class="agent-stats"><span>94 Sales</span><span>⭐ 5.0</span></div>
+        </div>
+        <div class="agent-card reveal">
+          <div class="agent-img">
+            <img src="https://i.pravatar.cc/300?img=47" alt="Nina Patel" />
+            <div class="agent-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <h4>Nina Patel</h4>
+          <p>Commercial Properties</p>
+          <div class="agent-stats"><span>52 Sales</span><span>⭐ 4.8</span></div>
+        </div>
+        <div class="agent-card reveal">
+          <div class="agent-img">
+            <img src="https://i.pravatar.cc/300?img=33" alt="David Lawson" />
+            <div class="agent-social">
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fas fa-envelope"></i></a>
+            </div>
+          </div>
+          <h4>David Lawson</h4>
+          <p>Waterfront & Estates</p>
+          <div class="agent-stats"><span>77 Sales</span><span>⭐ 4.9</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────── TESTIMONIALS ──────────────────── -->
+  <section class="testi-section">
+    <div class="container">
+      <div class="section-intro centered reveal">
+        <div class="section-label">Client Stories</div>
+        <h2 class="section-title">Words From Our <em>Happy Clients</em></h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p>"Luxe Estates made buying our dream home a truly magical experience. From the very first call, we knew we were in exceptional hands."</p>
+          <div class="testi-person">
+            <img src="https://i.pravatar.cc/100?img=1" alt="Sarah Johnson" />
+            <div>
+              <strong>Sarah Johnson</strong>
+              <span>Beverly Hills Homeowner</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card testi-featured reveal">
+          <div class="testi-quote-mark">"</div>
+          <div class="testi-stars">★★★★★</div>
+          <p>"I've worked with many agencies globally — none match the market knowledge and white-glove service Luxe Estates provides. They saved me over $80k on my investment property."</p>
+          <div class="testi-person">
+            <img src="https://i.pravatar.cc/100?img=12" alt="Michael Chen" />
+            <div>
+              <strong>Michael Chen</strong>
+              <span>Property Investor, NYC</span>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="testi-stars">★★★★★</div>
+          <p>"As a first-time buyer, I was nervous. Their concierge team guided me through every step — I never felt alone in the process. Absolutely 10/10."</p>
+          <div class="testi-person">
+            <img src="https://i.pravatar.cc/100?img=5" alt="Emily Rodriguez" />
+            <div>
+              <strong>Emily Rodriguez</strong>
+              <span>First-time Buyer, Austin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────── CTA ──────────────────── -->
+  <section class="cta-section">
+    <div class="cta-bg"></div>
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="section-label light">Ready to Begin?</div>
+        <h2>Your Dream Property<br><em>Is One Call Away</em></h2>
+        <p>Schedule a complimentary consultation with our specialists and let us find your perfect match.</p>
+        <div class="cta-btns">
+          <button class="btn-cta-gold" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">
+            Schedule Free Consultation
+          </button>
+          <button class="btn-cta-ghost">
+            <i class="fa-solid fa-phone"></i> +1 (555) 123-4567
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────── CONTACT ──────────────────── -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="section-label">Get In Touch</div>
+          <h2 class="section-title">We'd Love to<br><em>Hear From You</em></h2>
+          <p>Reach out any time. Our team responds within 2 hours during business hours.</p>
+          <div class="contact-items">
+            <div class="ci">
+              <div class="ci-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <h4>Address</h4>
+                <p>123 Real Estate Blvd, Suite 100<br>Los Angeles, CA 90001</p>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <h4>Phone</h4>
+                <p>+1 (555) 123-4567</p>
+              </div>
+            </div>
+            <div class="ci">
+              <div class="ci-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <h4>Email</h4>
+                <p>hello@luxeestates.com</p>
+              </div>
+            </div>
+            <div class="ci ci-whatsapp" onclick="window.open('https://wa.me/15559876543','_blank')">
+              <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
+              <div>
+                <h4>WhatsApp</h4>
+                <p>+1 (555) 987-6543</p>
+              </div>
+            </div>
+          </div>
+          <div class="contact-hours">
+            <i class="fa-solid fa-clock"></i>
+            <span>Mon – Sat: 9:00 AM – 6:00 PM EST</span>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal">
+          <form class="contact-form" id="contactForm">
+            <h3>Send a Message</h3>
+            <div class="form-row">
+              <div class="fg">
+                <label>Full Name</label>
+                <input type="text" placeholder="John Doe" required />
+              </div>
+              <div class="fg">
+                <label>Phone</label>
+                <input type="tel" placeholder="+1 (555) 000-0000" required />
+              </div>
+            </div>
+            <div class="fg">
+              <label>Email</label>
+              <input type="email" placeholder="you@example.com" required />
+            </div>
+            <div class="fg">
+              <label>I'm interested in</label>
+              <select>
+                <option>Buying a property</option>
+                <option>Renting a property</option>
+                <option>Selling my property</option>
+                <option>Investment advice</option>
+                <option>General inquiry</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>Message</label>
+              <textarea rows="5" placeholder="Tell us about your requirements…" required></textarea>
+            </div>
+            <button type="submit" class="btn-form-submit">
+              Send Message <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ──────────────────── FOOTER ──────────────────── -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <svg width="28" height="28" viewBox="0 0 48 48" fill="none">
+                <path d="M24 4L44 18V44H30V30H18V44H4V18L24 4Z" stroke="#C9A96E" stroke-width="2.5" stroke-linejoin="round"/>
+              </svg>
+              <span>Luxe Estates</span>
+            </div>
+            <p>Your trusted partner in finding exceptional properties. Making dreams come true since 2010.</p>
+            <div class="footer-social">
+              <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+              <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Properties</h4>
+            <ul>
+              <li><a href="#">Apartments</a></li>
+              <li><a href="#">Villas</a></li>
+              <li><a href="#">Commercial</a></li>
+              <li><a href="#">Plots & Land</a></li>
+              <li><a href="#">Rentals</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <ul class="footer-contact-list">
+              <li><i class="fa-solid fa-location-dot"></i> Los Angeles, CA 90001</li>
+              <li><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</li>
+              <li><i class="fa-solid fa-envelope"></i> hello@luxeestates.com</li>
+              <li><i class="fa-solid fa-clock"></i> Mon – Sat: 9AM – 6PM</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Luxe Estates. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- ══════════════════════════════════════════════════
+       PROPERTY DETAIL MODAL
+       ══════════════════════════════════════════════════ -->
+  <div class="pdm-backdrop" id="pdmBackdrop"></div>
+
+  <div class="pdm" id="pdm" role="dialog" aria-modal="true" aria-labelledby="pdmTitle">
+
+    <!-- Close -->
+    <button class="pdm-close" id="pdmClose" aria-label="Close">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <!-- ── Gallery ── -->
+    <div class="pdm-gallery" id="pdmGallery">
+      <div class="pdm-gallery-main">
+        <img id="pdmMainImg" src="" alt="Property" />
+        <div class="pdm-gallery-nav">
+          <button class="pgn-btn" id="pgPrev"><i class="fa-solid fa-chevron-left"></i></button>
+          <button class="pgn-btn" id="pgNext"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <div class="pdm-gallery-counter" id="pdmImgCounter">1 / 6</div>
+        <div class="pdm-tour-badge"><i class="fa-solid fa-vr-cardboard"></i> 3D Tour Available</div>
+      </div>
+      <div class="pdm-gallery-thumbs" id="pdmThumbs"></div>
+    </div>
+
+    <!-- ── Body ── -->
+    <div class="pdm-body">
+
+      <!-- Left column -->
+      <div class="pdm-left">
+
+        <!-- Breadcrumb -->
+        <div class="pdm-breadcrumb">
+          <span>Properties</span>
+          <i class="fa-solid fa-chevron-right"></i>
+          <span id="pdmCategory">Villa</span>
+          <i class="fa-solid fa-chevron-right"></i>
+          <span id="pdmBreadName">—</span>
+        </div>
+
+        <!-- Title row -->
+        <div class="pdm-title-row">
+          <div>
+            <div class="pdm-badges" id="pdmBadges"></div>
+            <h2 class="pdm-title" id="pdmTitle">—</h2>
+            <p class="pdm-location" id="pdmLocation"><i class="fa-solid fa-location-dot"></i> —</p>
+          </div>
+          <div class="pdm-price-block">
+            <div class="pdm-price" id="pdmPrice">—</div>
+            <div class="pdm-price-sub" id="pdmPriceSub">For Sale</div>
+          </div>
+        </div>
+
+        <!-- Key specs bar -->
+        <div class="pdm-specs-bar" id="pdmSpecsBar"></div>
+
+        <!-- Tabs -->
+        <div class="pdm-tabs">
+          <button class="pdm-tab active" data-tab="overview">Overview</button>
+          <button class="pdm-tab" data-tab="features">Features & Amenities</button>
+          <button class="pdm-tab" data-tab="map">Location & Map</button>
+          <button class="pdm-tab" data-tab="finance">Mortgage Calc</button>
+        </div>
+
+        <!-- Tab panels -->
+        <div class="pdm-panels">
+
+          <!-- Overview -->
+          <div class="pdm-panel active" id="tab-overview">
+            <h4>About This Property</h4>
+            <p id="pdmDesc" class="pdm-desc">—</p>
+
+            <div class="pdm-highlights" id="pdmHighlights"></div>
+
+            <h4 style="margin-top:2rem">Property Details</h4>
+            <div class="pdm-detail-grid" id="pdmDetailGrid"></div>
+          </div>
+
+          <!-- Features -->
+          <div class="pdm-panel" id="tab-features">
+            <h4>Interior Features</h4>
+            <div class="pdm-feature-list" id="pdmInterior"></div>
+            <h4 style="margin-top:1.75rem">Outdoor & Community</h4>
+            <div class="pdm-feature-list" id="pdmOutdoor"></div>
+            <h4 style="margin-top:1.75rem">Building & Security</h4>
+            <div class="pdm-feature-list" id="pdmBuilding"></div>
+          </div>
+
+          <!-- Map -->
+          <div class="pdm-panel" id="tab-map">
+            <div class="pdm-map-wrap">
+              <div class="pdm-map-placeholder" id="pdmMapPlaceholder">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <p id="pdmMapAddr">—</p>
+                <a class="pdm-map-link" id="pdmMapLink" href="#" target="_blank" rel="noopener">
+                  Open in Google Maps <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </div>
+            <div class="pdm-nearby">
+              <h4>Nearby Places</h4>
+              <div class="pdm-nearby-grid" id="pdmNearby"></div>
+            </div>
+          </div>
+
+          <!-- Mortgage Calc -->
+          <div class="pdm-panel" id="tab-finance">
+            <h4>Mortgage Calculator</h4>
+            <div class="pdm-calc">
+              <div class="pdm-calc-row">
+                <div class="pdm-calc-field">
+                  <label>Home Price ($)</label>
+                  <input type="number" id="calcPrice" />
+                </div>
+                <div class="pdm-calc-field">
+                  <label>Down Payment (%)</label>
+                  <input type="number" id="calcDown" value="20" min="0" max="100" />
+                </div>
+                <div class="pdm-calc-field">
+                  <label>Interest Rate (%)</label>
+                  <input type="number" id="calcRate" value="6.5" step="0.1" />
+                </div>
+                <div class="pdm-calc-field">
+                  <label>Loan Term (years)</label>
+                  <select id="calcTerm">
+                    <option value="10">10 years</option>
+                    <option value="15">15 years</option>
+                    <option value="20">20 years</option>
+                    <option value="30" selected>30 years</option>
+                  </select>
+                </div>
+              </div>
+              <button class="pdm-calc-btn" id="calcBtn">Calculate Payment</button>
+              <div class="pdm-calc-result" id="calcResult" style="display:none">
+                <div class="calc-result-item">
+                  <span>Monthly Payment</span>
+                  <strong id="calcMonthly">—</strong>
+                </div>
+                <div class="calc-result-item">
+                  <span>Loan Amount</span>
+                  <strong id="calcLoan">—</strong>
+                </div>
+                <div class="calc-result-item">
+                  <span>Total Interest</span>
+                  <strong id="calcInterest">—</strong>
+                </div>
+                <div class="calc-result-item">
+                  <span>Total Cost</span>
+                  <strong id="calcTotal">—</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right sidebar -->
+      <div class="pdm-sidebar">
+
+        <!-- Agent card -->
+        <div class="pdm-agent-card">
+          <div class="pdm-agent-header">Listed by</div>
+          <div class="pdm-agent-info" id="pdmAgentInfo">
+            <img id="pdmAgentImg" src="" alt="Agent" />
+            <div>
+              <strong id="pdmAgentName">—</strong>
+              <span id="pdmAgentRole">Luxury Specialist</span>
+              <div class="pdm-agent-rating" id="pdmAgentRating">⭐ 4.9 · 68 reviews</div>
+            </div>
+          </div>
+          <div class="pdm-agent-actions">
+            <button class="pdm-btn-call" id="pdmAgentCall">
+              <i class="fa-solid fa-phone"></i> Call Agent
+            </button>
+            <button class="pdm-btn-whatsapp" id="pdmAgentWA">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </button>
+          </div>
+        </div>
+
+        <!-- Schedule Tour -->
+        <div class="pdm-tour-card">
+          <h4><i class="fa-regular fa-calendar"></i> Schedule a Viewing</h4>
+          <div class="pdm-tour-dates" id="pdmTourDates"></div>
+          <div class="pdm-tour-times" id="pdmTourTimes"></div>
+          <button class="pdm-btn-tour">Confirm Viewing</button>
+        </div>
+
+        <!-- Quick enquiry -->
+        <div class="pdm-enquiry-card">
+          <h4>Quick Enquiry</h4>
+          <input class="pdm-input" type="text" placeholder="Your name" />
+          <input class="pdm-input" type="tel" placeholder="Phone number" />
+          <textarea class="pdm-input" rows="3" placeholder="I'm interested in this property…"></textarea>
+          <button class="pdm-btn-enquiry">Send Enquiry <i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+
+        <!-- Share / Save row -->
+        <div class="pdm-action-row">
+          <button class="pdm-action-btn" id="pdmSaveBtn">
+            <i class="fa-regular fa-heart"></i> Save
+          </button>
+          <button class="pdm-action-btn" id="pdmShareBtn">
+            <i class="fa-solid fa-share-nodes"></i> Share
+          </button>
+          <button class="pdm-action-btn" id="pdmPrintBtn">
+            <i class="fa-solid fa-print"></i> Print
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Similar properties strip -->
+    <div class="pdm-similar">
+      <div class="pdm-similar-header">
+        <h4>Similar Properties</h4>
+        <button class="pdm-similar-more">View All <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <div class="pdm-similar-grid" id="pdmSimilarGrid"></div>
+    </div>
+
+  </div><!-- /pdm -->
+
+  <script src="script.js"></script>
 </body>
 </html>
